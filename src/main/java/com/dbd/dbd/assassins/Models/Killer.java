@@ -18,17 +18,26 @@ public class Killer {
     private String name, skill,height;
 
     private byte[] img;
-    private Set<Perk> perks = new HashSet<>();
 
 
     private double speed;
-    private int horrorRadio;
+    private int terrorRadius;
 
 
     public static  void main(String[] args){
 
     }
+
     public Killer() {
+    }
+
+    public Killer(String name, String skill,  byte[] img,String height, double speed, int terrorRadius) {
+        this.name = name;
+        this.skill = skill;
+        this.height = height;
+        this.img = img;
+        this.speed = speed;
+        this.terrorRadius = terrorRadius;
     }
 
     public String getId() {
@@ -67,13 +76,6 @@ public class Killer {
         this.height = height;
     }
 
-    public Set<Perk> getPerks() {
-        return perks;
-    }
-
-    public void setPerks(Set<Perk> perks) {
-        this.perks = perks;
-    }
 
     public double getSpeed() {
         return speed;
@@ -84,11 +86,11 @@ public class Killer {
     }
 
     public int getHorrorRadio() {
-        return horrorRadio;
+        return terrorRadius;
     }
 
     public void setHorrorRadio(int horrorRadio) {
-        this.horrorRadio = horrorRadio;
+        this.terrorRadius = horrorRadio;
     }
 
 

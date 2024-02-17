@@ -21,7 +21,8 @@ public class SecurityConfig  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         //configuraciones
 
-        http.authorizeHttpRequests(ant -> ant.requestMatchers("/index.html").permitAll()
+        http.authorizeHttpRequests(ant -> ant.requestMatchers("/index.html","/style.css").permitAll()
+                        .requestMatchers("/img/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/user","/api/login").permitAll())
             .csrf(csrf -> csrf.disable())
             .headers( headers -> headers.frameOptions(options -> options.disable()));
