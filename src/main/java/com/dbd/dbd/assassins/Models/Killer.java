@@ -40,6 +40,8 @@ public class Killer {
         this.terrorRadius = terrorRadius;
     }
 
+
+    
     public String getId() {
         return id;
     }

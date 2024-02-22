@@ -17,14 +17,14 @@ public class KillerController {
     @Autowired
     private KillerRepository killerRepository;
 
-    @PostMapping("")
-    public ResponseEntity<String> RegisterKiller(@RequestBody NewKiller newKiller){
+            @PostMapping("")
+            public ResponseEntity<String> RegisterKiller(@RequestBody NewKiller newKiller){
 
-        Killer killer = new Killer(newKiller.name(),newKiller.skill(),newKiller.img(),newKiller.height()
-                ,newKiller.speed(),newKiller.terrorRadius());
-        killerRepository.save(killer);
-    return new ResponseEntity<>("Todo salio bien", HttpStatus.CREATED);
-    }
+                Killer killer = new Killer(newKiller.name(),newKiller.skill(),newKiller.img(),newKiller.height()
+                        ,newKiller.speed(),newKiller.terrorRadius());
+                killerRepository.save(killer);
+            return new ResponseEntity<>("Todo salio bien", HttpStatus.CREATED);
+            }
 
     @GetMapping("")
     public List<Killer> getAll(){
