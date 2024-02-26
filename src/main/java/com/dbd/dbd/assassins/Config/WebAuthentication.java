@@ -1,7 +1,7 @@
 package com.dbd.dbd.assassins.Config;
 
-import com.dbd.dbd.assassins.Models.User;
-import com.dbd.dbd.assassins.Repositories.UserRepository;
+import com.dbd.dbd.assassins.Models.Client;
+import com.dbd.dbd.assassins.Repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
     @Autowired
-    private UserRepository userRepository;
+    private ClientRepository clientRepository;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -26,11 +26,12 @@ public class WebAuthentication extends GlobalAuthenticationConfigurerAdapter {
     @Override
     public void init(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(inputName ->{
-            User user = userRepository.findByEmail(inputName);
+            Client client = clientRepository.findByEmail(inputName);
 
-           if (user != null){
+           if (client != null){
 
-               return new org.springframework.security.core.userdetails.User(user.getEmail(),user.getPassword(), AuthorityUtils.createAuthorityList("user"));
+               return new org.springframework.security.core.userdetails.User(client.getEmail(), client.getPassword(), AuthorityUtils.createAuthorityList("user"));
+
            }else{
                throw new UsernameNotFoundException("No te encontre mostro");
            }

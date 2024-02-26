@@ -1,12 +1,12 @@
 package com.dbd.dbd.assassins.Repositories;
 
-import com.dbd.dbd.assassins.Models.User;
+import com.dbd.dbd.assassins.Models.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends JpaRepository <User,String>{
+public interface ClientRepository extends JpaRepository <Client,String>{
 
-    User findByEmail(String email);
+    Client findByEmail(String email);
 
 }

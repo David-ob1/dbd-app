@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -14,9 +14,15 @@ public class User {
 
     private String name, lastName, email, password;
 
-    public User() {
+    public Client() {
     }
 
+    public Client(String name, String lastName, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getId() {
         return id;

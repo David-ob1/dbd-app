@@ -19,7 +19,6 @@ public class Killer {
 
     private byte[] img;
 
-
     private double speed;
     private int terrorRadius;
 

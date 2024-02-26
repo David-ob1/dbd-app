@@ -21,14 +21,14 @@ public class SecurityConfig  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         //configuraciones
 
-        http.authorizeHttpRequests(ant -> ant.requestMatchers("/index.html","/style.css","/addKiller.js").permitAll()
+        http.authorizeHttpRequests(ant -> ant.requestMatchers("/index.html","/style.css","/addKiller.js","/h2-console").permitAll()
                         .requestMatchers("/img/**").permitAll()
                 .requestMatchers(HttpMethod.POST,"/api/user","/api/login").permitAll())
             .csrf(csrf -> csrf.disable())
             .headers( headers -> headers.frameOptions(options -> options.disable()));
         http.formLogin(formLogin ->
 
-                formLogin.loginPage("/index.html")
+                formLogin.loginPage("/h2-console")
                         .loginProcessingUrl("/api/login")
                         .usernameParameter("email")
                         .passwordParameter("password")
